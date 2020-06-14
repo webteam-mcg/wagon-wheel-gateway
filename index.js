@@ -5,6 +5,7 @@ var morgan = require('morgan');
 require('dotenv').config();
 
 const player = require('./src/routes/playerRoutes');
+const score = require('./src/routes/scoreRoutes');
 
 const app = express();
 const PORT = process.env.SERVER_PORT;
@@ -24,6 +25,7 @@ app.use(morgan('combined'));
 
 // public routes
 app.use('/api/v1', player);
+app.use('/api/v1', score);
 
 app.get('/', (req,res)=>{
     res.send('Server running on port '+PORT);
