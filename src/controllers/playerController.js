@@ -17,7 +17,7 @@ module.exports = {
 
     playerList:function(req, res, next){
 
-        Player.find(({team: req.params.team}, (err, players)=>{
+        Player.find({team: req.params.team}, (err, players)=>{
 
             if (err){
                 console.log(err);
@@ -25,6 +25,6 @@ module.exports = {
             }else{
                 res.json(players);
             }
-        }))
+        })
     }
 }
